@@ -19,7 +19,7 @@ def check_bound(rect: pg.Rect):
     if rect.top < 0 or HEIGHT < rect.bottom:
         tate = False
     return yoko, tate
-
+#ここうかとんの画像
 #def init_kk_imgs():
     kk_img0 = pg.transform.rotozoom(pg.imgs.load("ex02/fig/3.png"),0,2.0)
     kk_img = pg.transform.flip(kk_img0,True,False)
