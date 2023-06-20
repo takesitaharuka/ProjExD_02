@@ -20,17 +20,17 @@ def check_bound(rect: pg.Rect):
         tate = False
     return yoko, tate
 
-def init_kk_imgs():
-    kk_img0 = pg.transform.rotozoom(pg.imgs.load("ex02/fig/3.png"),0,1.0)
+#def init_kk_imgs():
+    kk_img0 = pg.transform.rotozoom(pg.imgs.load("ex02/fig/3.png"),0,2.0)
     kk_img = pg.transform.flip(kk_img0,True,False)
     return {
         (0,0):kk_img,
         (+1,0):kk_img,
        (+1,-1):pg.transform.rotozoom(kk_img, 45, 1.0),
        (0,-1):pg.transform.rotozoom(kk_img, 90, 1.0),
-       (-1,-1):pg.transform.rotozoom(kk_img, -45, 1.0),
-       (-1,0):kk_img0,
-       (-1,+1):pg.transform.rotozoom(kk_img, 45, 1.0),
+       (-1,-1):pg.transform.rotozoom(kk_img0, -45, 1.0),
+       (-1,0):kk_img,
+       (-1,+1):pg.transform.rotozoom(kk_img0, 45, 1.0),
        (0,+1):pg.transform.rotozoom(kk_img, -90, 1.0),
        (+1,+1):pg.transform.rotozoom(kk_img, -45, 1.0),
        }
@@ -47,9 +47,9 @@ def main():
     kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
 
     #こうかトン
-    kk_rct = kk_img.get_rect()
-    kk_imgs = init_kk_imgs()
-    kk_rct = kk_imgs[(0,0)].get_rect()
+    #kk_rct = kk_img.get_rect()
+    #kk_imgs = init_kk_imgs()
+    #kk_rct = kk_imgs[(0,0)].get_rect()
     kk_rct = kk_img.get_rect()
     kk_rct.center = 900,400
 
@@ -62,8 +62,6 @@ def main():
     bd_rct.center = x,y  
     vx,vy = +5, +5
     clock = pg.time.Clock()
-
-
     tmr = 0
     while True:
         for event in pg.event.get():
